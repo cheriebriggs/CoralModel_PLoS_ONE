@@ -28,16 +28,6 @@ abrupt<-mod1[mod1$new_delta_dV<0.5,]
 abrupt<-abrupt[abrupt$new_delta_dV> -0.5,]
 nrow(abrupt)/nrow(mod1)
 
-#junk<-mod1[mod1$hyst_diffeqm!=mod1$hyst_unstable,]
-#junk<-mod1[(mod1$hyst_diffeqm+mod1$hyst_unstable+mod1$hyst_Cmax)!=3,]
-#mod1$allhyst<-mod1$hyst_diffeqm+mod1$hyst_unstable+mod1$hyst_Cmax
-#junk<-junk[junk$allhyst<3,]
-
-#junk<-mod1[mod1$hyst_diffeqm!=mod1$hyst_unstable,]
-#junk2<-junk[(junk$hyst_diffeqm==1)&(junk$hyst_unstable==0),]
-#junk3<-mod1[mod1$hyst_unstable==1,]
-#junk3$mydiff<-junk3$delta_dV_diffeqm-junk3$delta_dV_unstable
-#junk3<-junk3[order(junk3$mydiff),]
 
 ################
 mod2<-read.table("mod2_all.csv",header=T,sep=",")
@@ -56,10 +46,6 @@ mod2$delta_dV_Cmax<-mod2$critM_Cmax - mod2$critC_Cmax
 
 mod2$new_hyst<-mod2$hyst_diffeqm
 mod2$new_delta_dV<-ifelse(mod2$new_hyst==1,mod2$delta_dV_diffeqm,mod2$delta_dV_Cmax)
-
-
-#junk<-mod2[mod2$hyst_diffeqm!=mod2$hyst_unstable,]
-
 
 
 #to calculate fraction of cases with hystersis:
